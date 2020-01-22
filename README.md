@@ -1,3 +1,7 @@
+## Short Info
+
+This is a simple project which uses [Random Quotes API](https://github.com/lukePeavey/quotable) that serves famous quotes.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
