@@ -1,0 +1,92 @@
+.quote-card {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  height: 60%;
+  z-index: 1;
+
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: #fdfdfd;
+
+  animation: stage-in 1.5s 1 both;
+
+  @keyframes stage-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  &__body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+
+  &__sentence {
+    font-family: 'Averia Gruesa Libre', cursive;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+
+    @media (min-width: 360px) {
+      font-size: 22px;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 36px;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 40px;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  &__author-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: right;
+
+    @media (min-width: 360px) {
+      font-size: 18px;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 28px;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 32px;
+    }
+  }
+
+  &__triangle {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%) rotate(45deg);
+    z-index: -1;
+
+    width: 50px;
+    height: 50px;
+
+    border: 2px solid transparent;
+    border-bottom-color: black;
+    border-right-color: black;
+    background-color: #fdfdfd;
+  }
+}
