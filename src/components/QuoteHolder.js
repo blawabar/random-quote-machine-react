@@ -12,13 +12,18 @@ const QuoteHolder = () => {
   const { isLoading, data, error } = useQuoteFetcher([flag]);
 
   const renderButton = () => {
-    const text = isLoading || data ? "Get new quote" : "Try again";
+    let text = "";
+
+    if (data) {
+      text = "Get new quote";
+    } else if (error) {
+      text = "Try again";
+    }
 
     return (
       <button
         onClick={() => toggleFlag(!flag)}
         className="quote-holder__fetch-btn"
-        disabled={isLoading}
       >
         {text}
       </button>
@@ -32,7 +37,9 @@ const QuoteHolder = () => {
       content = <QuoteCard {...data} />;
     } else if (error) {
       content = (
-        <h1 className="quote-holder__error-msg">Something went wrong.</h1>
+        <h1 className="quote-holder__error-msg">
+          Something went wrong: {error.message}
+        </h1>
       );
     } else if (isLoading) {
       content = (
@@ -46,7 +53,7 @@ const QuoteHolder = () => {
   return (
     <div className="quote-holder">
       {renderSubContent()}
-      {renderButton()}
+      {(data || error) && renderButton()}
     </div>
   );
 };

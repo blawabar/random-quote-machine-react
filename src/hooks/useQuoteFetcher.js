@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useRef } from "react";
 
 class FetchState {
   static FETCH_INIT = "FETCH_INIT";
@@ -21,8 +21,6 @@ const reducerFunction = (state, action) => {
   }
 };
 
-const API = "https://api.quotable.io/random";
-
 const useQuoteFetcher = deps => {
   const [state, dispatch] = useReducer(reducerFunction, {
     data: null,
@@ -30,11 +28,13 @@ const useQuoteFetcher = deps => {
     isLoading: false
   });
 
+  const API = useRef("https://api.quotable.io/random");
+
   useEffect(() => {
     const getRandomQuote = async () => {
       try {
         dispatch({ type: FetchState.FETCH_INIT });
-        const response = await fetch(API);
+        const response = await fetch(API.current);
 
         if (response.ok) {
           const data = await response.json();
