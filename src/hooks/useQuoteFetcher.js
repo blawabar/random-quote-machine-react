@@ -31,10 +31,13 @@ const useQuoteFetcher = deps => {
   const API = useRef("https://api.quotable.io/random");
 
   useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
     const getRandomQuote = async () => {
       try {
         dispatch({ type: FetchState.FETCH_INIT });
-        const response = await fetch(API.current);
+        const response = await fetch(API.current, { signal });
 
         if (response.ok) {
           const data = await response.json();
@@ -49,6 +52,8 @@ const useQuoteFetcher = deps => {
     };
 
     getRandomQuote();
+
+    return () => abortController.abort();
   }, deps);
 
   return state;
