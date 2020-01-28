@@ -1,11 +1,15 @@
-$bg-color: #282f39;
-$text-color: #d6770a;
+$bg-color: var(--grey);
+$text-color: var(--orange);
+$hover-color: var(--orange);
+$link-color: var(--light-orange);
 
 .footer {
   height: 10vh;
   background-color: $bg-color;
 
-  font-family: Arial, sans-serif;
+  font-family: var(--secondary-font);
+  font-weight: 300;
+  letter-spacing: 1px;
   color: $text-color;
 
   display: flex;
@@ -44,11 +48,11 @@ $text-color: #d6770a;
 
   &__external-link {
     text-decoration: none;
-    color: lighten($text-color, 15);
+    color: $link-color;
 
     &:hover {
       @media screen and (min-width: 1025px) {
-        color: lighten($text-color, 25);
+        color: $hover-color;
       }
     }
   }

@@ -5,6 +5,25 @@
   box-sizing: border-box;
 }
 
+// Global variables
+:root {
+  --primary-font: 'Averia Gruesa Libre', cursive;
+  --secondary-font: 'Oswald', sans-serif;
+
+  --white: #f4f4f4;
+
+  --black: #2e2e2e;
+  --grey: #282f39;
+  --light-grey: #877f7f;
+  --shadow-color: rgba(27, 27, 27, 0.25);
+
+  --orange: #ffcc33;
+  --light-orange: #fce49d;
+
+  --blue: #0173fe;
+  --light-blue: #3891fd;
+}
+
 body {
-  background-color: #141414;
+  background-color: var(--black);
 }

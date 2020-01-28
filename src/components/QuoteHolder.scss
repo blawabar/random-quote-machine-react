@@ -1,12 +1,13 @@
-$holder-bgc: #ffcc33;
-$button-bgc: #0173fe;
-$button-text-color: #f5f5f5;
+$quote-holder-bgc: var(--orange);
+$btn-bgc: var(--blue);
+$btn-hvr-bgc: var(--light-blue);
+$btn-text-color: var(--white);
 
-$font-family: 'Oswald', sans-serif;
+$font-family: var(--secondary-font);
 
 .quote-holder {
   height: 90vh;
-  background-color: $holder-bgc;
+  background-color: $quote-holder-bgc;
 
   display: flex;
   flex-direction: column;
@@ -34,7 +35,7 @@ $font-family: 'Oswald', sans-serif;
 
     border: none;
     outline: none;
-    background-color: $button-bgc;
+    background-color: $btn-bgc;
 
     margin-top: 50px;
 
@@ -42,14 +43,14 @@ $font-family: 'Oswald', sans-serif;
     font-size: 15px;
     line-height: 2;
     letter-spacing: 1px;
-    color: $button-text-color;
+    color: $btn-text-color;
 
     cursor: pointer;
 
     transition: background-color 250ms;
 
     &:hover {
-      background-color: lighten($color: $button-bgc, $amount: 10);
+      background-color: $btn-hvr-bgc;
     }
 
     @media (min-width: 640px) {

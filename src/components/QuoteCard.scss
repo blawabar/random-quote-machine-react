@@ -1,16 +1,18 @@
-$white: #f4f4f4;
-$black: #2e2e2e;
-$grey: #877f7f;
-$box-shadow-color: rgba(27, 27, 27, 0.25);
+$quote-card-bgc: var(--white);
+$sentence-text-color: var(--black);
+$author-text-color: var(--light-grey);
 
-$solid-border: 3px solid $black;
+$border-color: var(--black);
+$solid-border: 3px solid $border-color;
+
+$box-shadow-color: var(--shadow-color);
 $box-shadow: 10px 10px 20px $box-shadow-color;
 
 $spacing: 15px;
 $quote-sign-size: 200px;
 
-$primary-font: 'Averia Gruesa Libre', cursive;
-$secondary-font: 'Oswald', sans-serif;
+$sentence-font: var(--primary-font);
+$author-font: var(--secondary-font);
 
 .quote-card {
   position: relative;
@@ -24,7 +26,7 @@ $secondary-font: 'Oswald', sans-serif;
 
   border-radius: 10px;
   border: $solid-border;
-  background-color: $white;
+  background-color: $quote-card-bgc;
   box-shadow: $box-shadow;
 
   animation: stage-in 1.5s 1 both;
@@ -67,12 +69,12 @@ $secondary-font: 'Oswald', sans-serif;
   &__sentence {
     margin-bottom: $spacing;
 
-    font-family: $primary-font;
+    font-family: $sentence-font;
     font-size: 18px;
     font-weight: 700;
     line-height: 1.5;
     text-align: center;
-    color: $black;
+    color: $sentence-text-color;
 
     @media screen and (min-width: 360px) {
       font-size: 20px;
@@ -92,12 +94,12 @@ $secondary-font: 'Oswald', sans-serif;
   }
 
   &__author-name {
-    font-family: $secondary-font;
+    font-family: $author-font;
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 1px;
     text-align: center;
-    color: $grey;
+    color: $author-text-color;
 
     @media (min-width: 360px) {
       font-size: 18px;
@@ -128,14 +130,14 @@ $secondary-font: 'Oswald', sans-serif;
 
     border-bottom: $solid-border;
     border-right: $solid-border;
-    background-color: $white;
-    box-shadow: -10px -10px 0 7px $white, $box-shadow;
+    background-color: $quote-card-bgc;
+    box-shadow: -10px -10px 0 7px $quote-card-bgc, $box-shadow;
 
     @media screen and (min-width: 1024px) {
       bottom: -5px;
       border-bottom-width: 5px;
       border-right-width: 5px;
-      box-shadow: -10px -10px 0 5px $white;
+      box-shadow: -10px -10px 0 5px $quote-card-bgc;
     }
   }
 }
