@@ -1,9 +1,9 @@
-$bg-color: var(--grey);
-$text-color: var(--orange);
-$hover-color: var(--orange);
-$link-color: var(--light-orange);
-
 .footer {
+  $bg-color: var(--black);
+  $text-color: var(--orange);
+  $hover-color: var(--orange);
+  $link-color: var(--light-orange);
+
   height: 10vh;
   background-color: $bg-color;
 

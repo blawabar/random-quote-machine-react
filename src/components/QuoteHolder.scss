@@ -1,11 +1,11 @@
-$quote-holder-bgc: var(--orange);
-$btn-bgc: var(--blue);
-$btn-hvr-bgc: var(--light-blue);
-$btn-text-color: var(--white);
-
-$font-family: var(--secondary-font);
-
 .quote-holder {
+  $quote-holder-bgc: var(--orange);
+  $btn-bgc: var(--black);
+  $btn-hvr-bgc: var(--grey);
+  $btn-text-color: var(--white);
+
+  $font-family: var(--secondary-font);
+
   height: 90vh;
   background-color: $quote-holder-bgc;
 

@@ -1,20 +1,20 @@
-$quote-card-bgc: var(--white);
-$sentence-text-color: var(--black);
-$author-text-color: var(--light-grey);
-
-$border-color: var(--black);
-$solid-border: 3px solid $border-color;
-
-$box-shadow-color: var(--shadow-color);
-$box-shadow: 10px 10px 20px $box-shadow-color;
-
-$spacing: 15px;
-$quote-sign-size: 200px;
-
-$sentence-font: var(--primary-font);
-$author-font: var(--secondary-font);
-
 .quote-card {
+  $quote-card-bgc: var(--white);
+  $sentence-text-color: var(--black);
+  $author-text-color: var(--light-grey);
+
+  $border-color: var(--black);
+  $solid-border: 3px solid $border-color;
+
+  $box-shadow-color: var(--shadow-color);
+  $box-shadow: 10px 10px 20px $box-shadow-color;
+
+  $spacing: 15px;
+  $quote-sign-size: 200px;
+
+  $sentence-font: var(--primary-font);
+  $author-font: var(--secondary-font);
+
   position: relative;
   width: 95%;
   height: 60%;
