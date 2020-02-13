@@ -1,5 +1,7 @@
 # Random Quotes Machine (made with React)
 
+Live demo: [https://blawabar.github.io/random-quote-machine-react/](https://blawabar.github.io/random-quote-machine-react/)
+
 ## About
 
 This is a simple project which uses [Random Quotes API](https://github.com/lukePeavey/quotable) that serves famous quotes.
