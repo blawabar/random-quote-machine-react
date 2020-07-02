@@ -8,6 +8,7 @@ const lukePeaveyLink = "https://github.com/lukePeavey";
 const apiAuthorName = "Luke Peavey";
 
 const Footer = () => {
+  // TODO: create own component instead of this
   const generateLink = (addr, text) => (
     <a
       className="footer__external-link"

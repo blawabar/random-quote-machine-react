@@ -1,11 +1,13 @@
 import { useEffect, useReducer, useRef } from "react";
 
+// TODO: move into a separate constants file
 class FetchState {
   static FETCH_INIT = "FETCH_INIT";
   static FETCH_SUCCESS = "FETCH_SUCCESS";
   static FETCH_ERROR = "FETCH_ERROR";
 }
 
+// TODO: move into a separate reducer file
 const reducerFunction = (state, action) => {
   const { type, payload } = action;
 
@@ -21,11 +23,11 @@ const reducerFunction = (state, action) => {
   }
 };
 
-const useQuoteFetcher = deps => {
+const useQuoteFetcher = (deps) => {
   const [state, dispatch] = useReducer(reducerFunction, {
     data: null,
     error: null,
-    isLoading: false
+    isLoading: false,
   });
 
   const API = useRef("https://api.quotable.io/random");

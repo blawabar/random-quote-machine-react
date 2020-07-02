@@ -11,6 +11,7 @@ const QuoteHolder = () => {
 
   const { isLoading, data, error } = useQuoteFetcher([flag]);
 
+  // TODO: it should be moved into a separate component CardButton
   const renderButton = () => {
     let text = "";
 
@@ -36,12 +37,14 @@ const QuoteHolder = () => {
     if (data) {
       content = <QuoteCard {...data} />;
     } else if (error) {
+      // TODO: it should be moved into a separate component ErrorMsg
       content = (
         <h1 className="quote-holder__error-msg">
           Something went wrong: {error.message}
         </h1>
       );
     } else if (isLoading) {
+      // TODO: it should be moved into a separate component LoadingInfo
       content = (
         <h1 className="quote-holder__loading-info">Loading new quote...</h1>
       );

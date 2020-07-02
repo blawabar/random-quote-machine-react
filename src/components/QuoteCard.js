@@ -8,8 +8,9 @@ const QuoteCard = ({ content, author }) => {
     matchMedia("screen and (max-width: 667px) and (max-height: 568px)")
   );
 
+  // TODO: move into a separate utils file
   const getView = useCallback(
-    shouldBeShrinked => {
+    (shouldBeShrinked) => {
       let view = "normal";
 
       if (content.length >= 225 && shouldBeShrinked) {
@@ -31,9 +32,11 @@ const QuoteCard = ({ content, author }) => {
     [view]
   );
 
-  const handleChangeView = useCallback(mqle => setView(getView(mqle.matches)), [
-    getView
-  ]);
+  // TODO: move into a separate utils file
+  const handleChangeView = useCallback(
+    (mqle) => setView(getView(mqle.matches)),
+    [getView]
+  );
 
   useEffect(() => {
     const mql = mediaQueryList.current;
@@ -43,6 +46,7 @@ const QuoteCard = ({ content, author }) => {
     return () => mql.removeEventListener("change", handleChangeView);
   }, [handleChangeView]);
 
+  // TODO: maybe it should be converted into a separate components
   return (
     <div className="quote-card">
       <img
