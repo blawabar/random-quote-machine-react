@@ -3,6 +3,11 @@ import { useState, useEffect, useCallback, useRef } from "react";
 
 import "./QuoteCard.scss";
 
+import { QuoteSign } from "./QuoteSign";
+import { QuoteSentence } from "./QuoteSentence";
+import { QuoteAuthor } from "./QuoteAuthor";
+import { QuoteTriangle } from "./QuoteTriangle";
+
 const QuoteCard = ({ content, author }) => {
   const mediaQueryList = useRef(
     matchMedia("screen and (max-width: 667px) and (max-height: 568px)")
@@ -49,18 +54,12 @@ const QuoteCard = ({ content, author }) => {
   // TODO: maybe it should be converted into a separate components
   return (
     <div className="quote-card">
-      <img
-        className="quote-card__quote-sign"
-        alt="quote sign"
-        src="quote.svg"
-      />
+      <QuoteSign />
       <section className="quote-card__body">
-        <p className="quote-card__sentence" style={getSentenceStyle()}>
-          {content}
-        </p>
-        <p className="quote-card__author-name">{author}</p>
+        <QuoteSentence style={getSentenceStyle()}>{content}</QuoteSentence>
+        <QuoteAuthor>{author}</QuoteAuthor>
       </section>
-      <div className="quote-card__triangle"></div>
+      <QuoteTriangle />
     </div>
   );
 };

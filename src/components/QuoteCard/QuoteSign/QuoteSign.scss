@@ -1,0 +1,12 @@
+.quote-sign {
+  $quote-sign-size: 200px;
+
+  width: $quote-sign-size;
+  height: $quote-sign-size;
+  opacity: 0.05;
+
+  @media screen and (min-width: 1024px) {
+    width: $quote-sign-size * 1.5;
+    height: $quote-sign-size * 1.5;
+  }
+}

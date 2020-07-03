@@ -1,0 +1,27 @@
+.quote-author {
+  $author-font: var(--secondary-font);
+  $author-text-color: var(--light-grey);
+
+  font-family: $author-font;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  color: $author-text-color;
+
+  @media (min-width: 360px) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 568px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
+
+  @media screen and (max-width: 823px) and (max-height: 411px) {
+    font-size: 18px;
+  }
+}

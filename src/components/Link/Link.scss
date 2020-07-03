@@ -1,0 +1,13 @@
+.link {
+  $link-color: var(--light-orange);
+  $hover-color: var(--orange);
+
+  text-decoration: none;
+  color: $link-color;
+
+  &:hover {
+    @media screen and (min-width: 1025px) {
+      color: $hover-color;
+    }
+  }
+}

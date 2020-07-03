@@ -1,7 +1,6 @@
 import React from "react";
 
-import QuoteHolder from "./QuoteHolder";
-import Footer from "./Footer";
+import { QuoteHolder, Footer } from "components";
 
 function App() {
   return (

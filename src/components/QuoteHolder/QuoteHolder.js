@@ -3,32 +3,24 @@ import { useState } from "react";
 
 import "./QuoteHolder.scss";
 
-import QuoteCard from "./QuoteCard";
-import useQuoteFetcher from "../hooks/useQuoteFetcher";
+import { QuoteCard, AppInfo, Button } from "components";
+import { useQuoteFetcher } from "hooks";
 
 const QuoteHolder = () => {
   const [flag, toggleFlag] = useState(false);
 
   const { isLoading, data, error } = useQuoteFetcher([flag]);
 
-  // TODO: it should be moved into a separate component CardButton
   const renderButton = () => {
     let text = "";
 
     if (data) {
-      text = "Get new quote";
+      text = "Get a new quote";
     } else if (error) {
       text = "Try again";
     }
 
-    return (
-      <button
-        onClick={() => toggleFlag(!flag)}
-        className="quote-holder__fetch-btn"
-      >
-        {text}
-      </button>
-    );
+    return <Button onClick={() => toggleFlag(!flag)}>{text}</Button>;
   };
 
   const renderSubContent = () => {
@@ -37,16 +29,19 @@ const QuoteHolder = () => {
     if (data) {
       content = <QuoteCard {...data} />;
     } else if (error) {
-      // TODO: it should be moved into a separate component ErrorMsg
       content = (
-        <h1 className="quote-holder__error-msg">
-          Something went wrong: {error.message}
-        </h1>
+        <AppInfo
+          title={"Something went wrong."}
+          message={error.message}
+          isError
+        />
       );
     } else if (isLoading) {
-      // TODO: it should be moved into a separate component LoadingInfo
       content = (
-        <h1 className="quote-holder__loading-info">Loading new quote...</h1>
+        <AppInfo
+          title={"Loading new quote."}
+          message={"Please wait for a while..."}
+        />
       );
     }
 

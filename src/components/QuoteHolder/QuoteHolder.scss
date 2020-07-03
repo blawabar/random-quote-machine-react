@@ -1,0 +1,12 @@
+.quote-holder {
+  $quote-holder-bgc: var(--orange);
+  $font-family: var(--secondary-font);
+
+  height: 90vh;
+  background-color: $quote-holder-bgc;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,8 +1,6 @@
 .footer {
   $bg-color: var(--black);
   $text-color: var(--orange);
-  $hover-color: var(--orange);
-  $link-color: var(--light-orange);
 
   height: 10vh;
   background-color: $bg-color;
@@ -43,17 +41,6 @@
 
     @media screen and (min-width: 1025px) {
       font-size: 18px;
-    }
-  }
-
-  &__external-link {
-    text-decoration: none;
-    color: $link-color;
-
-    &:hover {
-      @media screen and (min-width: 1025px) {
-        color: $hover-color;
-      }
     }
   }
 }

@@ -1,0 +1,29 @@
+.quote-triangle {
+  $quote-card-bgc: var(--white);
+  $border-color: var(--black);
+  $solid-border: 3px solid $border-color;
+
+  $box-shadow-color: var(--shadow-color);
+  $box-shadow: 10px 10px 20px $box-shadow-color;
+
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  transform: translate(-50%, 50%) rotate(45deg);
+  z-index: -1;
+
+  width: 50px;
+  height: 50px;
+
+  border-bottom: $solid-border;
+  border-right: $solid-border;
+  background-color: $quote-card-bgc;
+  box-shadow: -10px -10px 0 7px $quote-card-bgc, $box-shadow;
+
+  @media screen and (min-width: 1024px) {
+    bottom: -5px;
+    border-bottom-width: 5px;
+    border-right-width: 5px;
+    box-shadow: -10px -10px 0 5px $quote-card-bgc;
+  }
+}

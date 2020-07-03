@@ -1,0 +1,20 @@
+.app-info {
+  $font-family: var(--secondary-font);
+
+  font-family: $font-family;
+  font-size: 22px;
+  letter-spacing: 2px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 36px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 44px;
+  }
+
+  &-is-showing-error {
+    color: var(--red);
+  }
+}
