@@ -8,17 +8,17 @@ import { QuoteSentence } from "./QuoteSentence";
 import { QuoteAuthor } from "./QuoteAuthor";
 import { QuoteTriangle } from "./QuoteTriangle";
 
-import { getMediaQueryList, getView, getSentenceStyle } from "utils";
+import { getMediaQueryList, getViewType, getSentenceStyle } from "utils";
 
 const QuoteCard = ({ content, author }) => {
   const mediaQueryList = getMediaQueryList();
 
   const [view, setView] = useState(() =>
-    getView(mediaQueryList.matches, content)
+    getViewType(mediaQueryList.matches, content)
   );
 
   const handleChangeView = useCallback(
-    (mqle) => setView(getView(mqle.matches, content)),
+    (mqle) => setView(getViewType(mqle.matches, content)),
     [content]
   );
 

@@ -13,7 +13,7 @@ export const isUrl = function (props, propName, componentName) {
 export const getMediaQueryList = () =>
   matchMedia("screen and (max-width: 667px) and (max-height: 568px)");
 
-export const getView = (shouldBeShrinked, content) => {
+export const getViewType = (shouldBeShrinked, content) => {
   let view = ViewTypes.NORMAL;
 
   if (content.length >= 155 && shouldBeShrinked) {
