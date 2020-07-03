@@ -1,34 +1,10 @@
 import { useEffect, useReducer, useRef } from "react";
 
-// TODO: move into a separate constants file
-class FetchState {
-  static FETCH_INIT = "FETCH_INIT";
-  static FETCH_SUCCESS = "FETCH_SUCCESS";
-  static FETCH_ERROR = "FETCH_ERROR";
-}
-
-// TODO: move into a separate reducer file
-const reducerFunction = (state, action) => {
-  const { type, payload } = action;
-
-  switch (type) {
-    case FetchState.FETCH_INIT:
-      return { ...state, data: null, error: null, isLoading: true };
-    case FetchState.FETCH_DONE:
-      return { ...state, data: payload, error: null, isLoading: false };
-    case FetchState.FETCH_ERROR:
-      return { ...state, data: null, error: payload, isLoading: false };
-    default:
-      return state;
-  }
-};
+import { ActionTypes } from "data/constants";
+import { INITIAL_STATE, quoteReducer } from "data/reducer";
 
 const useQuoteFetcher = (deps) => {
-  const [state, dispatch] = useReducer(reducerFunction, {
-    data: null,
-    error: null,
-    isLoading: false,
-  });
+  const [state, dispatch] = useReducer(quoteReducer, INITIAL_STATE);
 
   const API = useRef("https://api.quotable.io/random");
 
@@ -38,18 +14,18 @@ const useQuoteFetcher = (deps) => {
 
     const getRandomQuote = async () => {
       try {
-        dispatch({ type: FetchState.FETCH_INIT });
+        dispatch({ type: ActionTypes.GET_QUOTE_REQUEST });
         const response = await fetch(API.current, { signal });
 
         if (response.ok) {
           const data = await response.json();
-          dispatch({ type: FetchState.FETCH_DONE, payload: data });
+          dispatch({ type: ActionTypes.GET_QUOTE_SUCCESS, payload: data });
         } else {
           const error = await response.json();
-          dispatch({ type: FetchState.FETCH_ERROR, payload: error });
+          dispatch({ type: ActionTypes.GET_QUOTE_ERROR, payload: error });
         }
       } catch (error) {
-        dispatch({ type: FetchState.FETCH_ERROR, payload: error });
+        dispatch({ type: ActionTypes.GET_QUOTE_ERROR, payload: error });
       }
     };
 
