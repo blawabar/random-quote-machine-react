@@ -1,40 +1,42 @@
-import React from "react";
-import { useState } from "react";
+import React, { useContext, useEffect } from "react";
 
 import "./QuoteHolder.scss";
 
 import { QuoteCard, AppInfo, Button } from "components";
-import { useQuoteFetcher } from "hooks";
+import { QuoteContext } from "data/context";
 
 const QuoteHolder = () => {
-  const [flag, toggleFlag] = useState(false);
+  const {
+    state,
+    actions: { getRandomQuote },
+  } = useContext(QuoteContext);
 
-  const { isLoading, data, error } = useQuoteFetcher([flag]);
+  useEffect(() => {
+    getRandomQuote();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const renderButton = () => {
-    let text = "";
-
-    if (data) {
-      text = "Get a new quote";
-    } else if (error) {
-      text = "Try again";
-    }
-
-    return <Button onClick={() => toggleFlag(!flag)}>{text}</Button>;
-  };
-
-  const renderSubContent = () => {
+  const renderContent = (state, handleAction) => {
+    const { isLoading, data, error } = state;
     let content = null;
 
     if (data) {
-      content = <QuoteCard {...data} />;
+      content = (
+        <>
+          <QuoteCard {...data} />
+          <Button onClick={handleAction}>Get a new quote</Button>
+        </>
+      );
     } else if (error) {
       content = (
-        <AppInfo
-          title={"Something went wrong."}
-          message={error.message}
-          isError
-        />
+        <>
+          <AppInfo
+            title={"Something went wrong."}
+            message={error.message}
+            isError
+          />
+          <Button onClick={handleAction}>Try again</Button>
+        </>
       );
     } else if (isLoading) {
       content = (
@@ -49,10 +51,7 @@ const QuoteHolder = () => {
   };
 
   return (
-    <div className="quote-holder">
-      {renderSubContent()}
-      {(data || error) && renderButton()}
-    </div>
+    <div className="quote-holder">{renderContent(state, getRandomQuote)}</div>
   );
 };
 

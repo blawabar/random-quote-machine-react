@@ -8,3 +8,5 @@ export const ViewTypes = Object.freeze({
   NORMAL: "normal",
   SHRINKED: "shrinked",
 });
+
+export const API = "https://api.quotable.io/random";
